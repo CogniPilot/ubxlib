@@ -135,6 +135,8 @@ if (EXISTS "${ZEPHYR_BASE}/../modules/crypto/mbedtls/include")
         ${ZEPHYR_BASE}/../modules/crypto/mbedtls/include)
 endif()
 
+target_compile_options(ubxlib PRIVATE -Wno-format-truncation)
+
 if (CONFIG_MINIMAL_LIBC)
     target_sources(ubxlib PRIVATE
         ${UBXLIB_BASE}/port/clib/u_port_clib_isblank.c
