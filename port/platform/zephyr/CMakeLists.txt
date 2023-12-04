@@ -130,6 +130,11 @@ if (CONFIG_UBXLIB_TEST)
     endif()
 endif()
 
+if (EXISTS "${ZEPHYR_BASE}/../modules/crypto/mbedtls/include")
+    zephyr_include_directories(
+        ${ZEPHYR_BASE}/../modules/crypto/mbedtls/include)
+endif()
+
 if (CONFIG_MINIMAL_LIBC)
     target_sources(ubxlib PRIVATE
         ${UBXLIB_BASE}/port/clib/u_port_clib_isblank.c
