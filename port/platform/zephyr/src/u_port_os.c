@@ -527,7 +527,7 @@ int32_t MTX_FN(uPortMutexCreate(uPortMutexHandle_t *pMutexHandle))
     if (pMutexHandle != NULL) {
         errorCode = U_ERROR_COMMON_NO_MEMORY;
         // Actually create the mutex
-        *pMutexHandle = (uPortMutexHandle_t) k_malloc(sizeof(struct k_mutex));
+        *pMutexHandle = (uPortMutexHandle_t) k_malloc(sizeof(struct k_mutex) + 44);
         if (*pMutexHandle != NULL) {
             errorCode = U_ERROR_COMMON_PLATFORM;
             if (0 == k_mutex_init((struct k_mutex *) * pMutexHandle)) {
